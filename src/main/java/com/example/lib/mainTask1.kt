@@ -11,6 +11,8 @@ fun main(){
         Student(5, "Hoang Van Hung", 20, 4.3)
     )
     addStudent(students)
+    demoBasics(students)
+    demoCondition(students)
     demoLoop(students)
     demoOperator(students)
     demoCollection(students)

@@ -37,14 +37,7 @@ fun demoOperator( students: List<Student>){
     println("Tổng điểm = ${maxScore + minScore}")
     println("Hiệu điểm = ${maxScore - minScore}")
     println("Nhân điểm = ${maxScore * minScore}")
-    if (minScore != 0.0) {
-        println("Chia điểm = ${maxScore / minScore}")
-        println("Chia lấy dư = ${maxScore.toInt() % minScore.toInt()}")
-    }
-    else{
-        println("Chia điểm = Không thể chia cho 0")
-        println("Chia lấy dư = Không thể chia cho 0")
-    }
+
     println("\nSinh vien co diem tren 9:")
     students.filter { it.score>9 }.forEach({ it.displayInfo() })
     println("\nSinh vien co diem duoi 7:")
@@ -55,6 +48,19 @@ fun demoOperator( students: List<Student>){
     //hien thi so sinh vien khac 20 tuoi
     println("So sinh vien khac 20 tuoi: ${students.count { it.age != 20 }}")
     // su dung when
+
+}
+fun demoCondition(student: MutableList<Student>){
+    //if else
+    if (minScore != 0.0) {
+        println("Chia điểm = ${maxScore / minScore}")
+        println("Chia lấy dư = ${maxScore.toInt() % minScore.toInt()}")
+    }
+    else{
+        println("Chia điểm = Không thể chia cho 0")
+        println("Chia lấy dư = Không thể chia cho 0")
+    }
+    //when
     println("\nSinh vien tu 20 den 22 :")
     for (student in students){
         when(student.age){
@@ -63,17 +69,47 @@ fun demoOperator( students: List<Student>){
         }
     }
     println("Sinh vien tu :")
-    for (student in students){
-        when(student.age){
-            20 -> "20: " + student.displayInfo()
-            21 -> "21: " + student.displayInfo()
-            22 -> "22: " + student.displayInfo()
+    for (s in student){
+        when(s.age){
+            20 -> "20: " + s.displayInfo()
+            21 -> "21: " + s.displayInfo()
+            22 -> "22: " + s.displayInfo()
             else -> {"Khong ton tai sinh vien o do tuoi nay"}
 
         }
     }
 }
 fun demoLoop(students: List<Student>){
+    //for hien thi ds sinh vien theo nhieu cach
+    displayListstudent(students)
+    //while
+    demoWhile(students)
+    //break, continue
+    demoBreakContinue()
+    //demo cac loai for khac
+    demoFor()
+
+}
+
+fun demoWhile(student: MutableList<Student>){
+    //while
+    println("\nDanh sach sinh vien (while):")
+    var index = 0
+    while (index < students.size){
+        students[index].displayInfo()
+        index++
+    }
+
+    //do-while
+    println("\nDanh sach sinh vien (do-while):")
+    index = 0
+    do {
+        students[index].displayInfo()
+        index++
+    } while (index < students.size)
+
+}
+fun displayListstudent(students: List<Student>){
     //for
     println("Danh sach sinh vien:")
     for (student in students){
@@ -94,23 +130,8 @@ fun demoLoop(students: List<Student>){
         println("Index: $index")
         students[index].displayInfo()
     }
-    //while
-    println("\nDanh sach sinh vien (while):")
-    var index = 0
-    while (index < students.size){
-        students[index].displayInfo()
-        index++
-    }
-
-    //do-while
-    println("\nDanh sach sinh vien (do-while):")
-    index = 0
-    do {
-        students[index].displayInfo()
-        index++
-    } while (index < students.size)
-
-    //break, continue
+}
+fun demoBreakContinue(){
     println("\nDanh sach sinh vien (break, continue):")
     for (student in students){
         if (student.score < 5.0){
@@ -125,19 +146,15 @@ fun demoLoop(students: List<Student>){
         }
         student.displayInfo()
     }
-    //for range
-    println("Demo for range:")
+}
+fun demoFor(){
+    //for
+    println("Demo for:")
     for (i in 1..5){
         println("i = $i")
     }
-    for (i in 5 downTo 1){
-        println("i = $i")
-    }
-    for (i in 1..10 step 2){
-        println("i = $i")
-    }
-    //for range with if
-    println("Demo for range with if:")
+    //for with if
+    println("Demo for with if:")
     for (i in 1..10){
         if (i % 2 == 0){
             println("i = $i")
@@ -161,6 +178,4 @@ fun demoLoop(students: List<Student>){
     for (i in arr.indices){
         println("Index: $i, Value: ${arr[i]}")
     }
-    //
-
 }

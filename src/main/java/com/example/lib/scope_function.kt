@@ -1,8 +1,6 @@
 package com.example.lib_task
 
 fun demoScopeFunction(student: Student) {
-
-
     // apply
     val studentApply = student.apply {
         age = 21

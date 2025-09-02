@@ -8,19 +8,15 @@ fun main(){
     testExtend()
 
     testInterfaceAndAbstract()
-
     //Data Class
     testDataClass()
 
     //User Management
     val p1 = User2(1, "My", "daothimy@gmail.com")
     val p2 = User2(2," Hanh", "vuhonghanh@gmail.com" )
-
     UserManager.addUser(p1)
     UserManager.addUser(p2)
-
     // kiem tra email su dung extension function
-    println("Email ${p1.email} hop le?:  ${p1.email.isValidEmail()}")
     println("Email ${p2.email} hop le?:  ${p2.email.isValidEmail()}")
     println("Email 'abs@' hop le: "  + "@abs".isValidEmail())
 
@@ -28,7 +24,6 @@ fun main(){
     val found = UserManager.findUserByEmail(
         "lehuong@gmail.com"
     )
-
     //safe call + Elvis
     println("Tim thay user: ${found?.name ?: "Khong tim thay"}")
 
