@@ -1,5 +1,9 @@
 package com.example.lib_task
 
+fun main() {
+    val student = Student("Alice", 20, 8.5)
+    demoScopeFunction(student)
+}
 fun demoScopeFunction(student: Student) {
     // apply
     val studentApply = student.apply {

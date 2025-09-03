@@ -16,5 +16,4 @@ fun main(){
     demoLoop(students)
     demoOperator(students)
     demoCollection(students)
-    demoScopeFunction(students[0])
 }
