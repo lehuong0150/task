@@ -1,7 +1,6 @@
 package com.example.lib_task
 
 //Viết một chương trình quản lý người dùng:
-//
 //data class User(id, name, email)
 data class  User2(val id: Int, val name: String, val email: String)
 //object UserManager lưu danh sách User (singleton).
