@@ -167,10 +167,16 @@ fun demoOtherFunctions(){
     // fold
     val foldResult = list.fold(0) { acc, i -> acc + i }
     println("Tong cac phan tu trong list: $foldResult")
+    // foldRight
+    val foldRightResult = list.foldRight(0) { i, acc -> acc + i }
+    println("Tong cac phan tu trong list (foldRight): $foldRightResult")
 
     // find
     val findResult = list.find { it > 5 }
     println("Phan tu dau tien lon hon 5: $findResult")
+    // findLast
+    val findLastResult = list.findLast { it > 5 }
+    println("Phan tu cuoi cung lon hon 5: $findLastResult")
 
     // flatMap
     val flatMapResult = list.flatMap { listOf(it, it * 2) }
@@ -184,9 +190,10 @@ fun demoOtherFunctions(){
     val (even, odd) = list.partition { it % 2 == 0 }
     println("Even: $even")
     println("Odd: $odd")
+
     // slice
-    val sliceResult = list.slice(2..5)
-    println("List sau khi slice(2..5): $sliceResult")
+    val sliceResult = list.slice(2,4,5)
+    println("List sau khi slice(2,4,5): $sliceResult")
 
     // subList
     val subListResult = list.subList(2, 5)
@@ -195,9 +202,14 @@ fun demoOtherFunctions(){
     // take
     val takeResult = list.take(3)
     println("List sau khi take(3): $takeResult")
-    // drop
+    val takeLastResult = list.takeLast(while (it > 5))
+    println("List sau khi takeLast : $takeLastResult")
+
+    // drop and dropLast
     val dropResult = list.drop(3)
     println("List sau khi drop(3): $dropResult")
+    val dropLastResult = list.dropLast(while (it > 5))
+    println("List sau khi dropLast : $dropLastResult")
 
     // union
     val list2 = listOf(5,6,7,8,9,10)
@@ -207,6 +219,15 @@ fun demoOtherFunctions(){
     // intersect
     val intersectResult = list.intersect(list2)
     println("List sau khi intersect: $intersectResult")
+
+    // distinct
+    val listWithDuplicates = listOf(1,2,2,3,4,4,5)
+    val distinctResult = listWithDuplicates.distinct()
+    println("List sau khi distinct: $distinctResult")
+
+    // chunked
+    val chunkedResult = list.chunked(3)
+    println("List sau khi chunked(3): $chunkedResult")
 
     // zip
     val zipResult = list.zip(list2)

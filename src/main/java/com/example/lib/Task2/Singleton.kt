@@ -32,7 +32,7 @@ fun demoSingleton(){
 }
 
 //lazy singleton
-class lazySingleton private constructor()    {
+class LazySingleton private constructor()    {
     var data: String = "Dao Thi My"
     fun showData() {
         println("Name: $data")

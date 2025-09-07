@@ -11,7 +11,7 @@ package com.example.lib_task.Task1
 fun main() {
     demoCondition()
     demoWhen()
-    demoloop()
+    demoLoop()
     demoWhile()
     demoNestedLoop()
 }
@@ -69,7 +69,7 @@ fun demoWhen() {
     println(result)
 }
 
-fun demoloop() {
+fun demoLoop() {
     //For Loop
     println("For Loop tang dan:")
     for (i in 1..5) {
