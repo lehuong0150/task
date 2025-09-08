@@ -146,6 +146,19 @@ fun demoMap(){
 
 fun demoOtherFunctions(){
     val list = mutableListOf(6,9,3,1,5,8,2,7,4)
+
+    //sum and fitter
+    val sumResult = list.filter { it > 5 }.sum()
+    println("\nSum of elements > 5: $sumResult")
+
+    //map
+    val combinedResult = list.filter { it % 2 == 0 }.map { it * 2 }.sorted()
+    println("Combined Result (even, *2, sorted): $combinedResult")
+
+    //reduce and find
+    val reduceResult = list.filter { it > 5 }.reduce { acc, i -> acc + i }
+    println("Reduce Result (sum of elements > 5): $reduceResult")
+
     //any
     if (list.any { it > 5 }){
         println("Co it nhat 1 phan tu lon hon 5")
@@ -172,7 +185,7 @@ fun demoOtherFunctions(){
     println("Tong cac phan tu trong list (foldRight): $foldRightResult")
 
     // find
-    val findResult = list.find { it > 5 }
+    val findResult = list.find { it > 5 }.sorted()
     println("Phan tu dau tien lon hon 5: $findResult")
     // findLast
     val findLastResult = list.findLast { it > 5 }
@@ -192,15 +205,15 @@ fun demoOtherFunctions(){
     println("Odd: $odd")
 
     // slice
-    val sliceResult = list.slice(2,4,5)
-    println("List sau khi slice(2,4,5): $sliceResult")
+    val sliceResult = list.slice(2,4,5).fold(0) { acc, i -> acc + i }
+    println("Tong List sau khi slice(2,4,5): $sliceResult")
 
     // subList
-    val subListResult = list.subList(2, 5)
-    println("List sau khi subList(2,5): $subListResult")
+    val subListResult = list.subList(2, 5).minOrNull()
+    println("Min cua List sau khi subList(2,5): $subListResult")
 
     // take
-    val takeResult = list.take(3)
+    val takeResult = list.take(3).sorted()
     println("List sau khi take(3): $takeResult")
     val takeLastResult = list.takeLast(while (it > 5))
     println("List sau khi takeLast : $takeLastResult")
