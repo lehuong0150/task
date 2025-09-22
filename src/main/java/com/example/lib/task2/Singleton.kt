@@ -1,16 +1,17 @@
 package com.example.lib_task
 
 //singleton voi companion object
-fun main(){
+fun main() {
     demoSingleton()
     demoLazySingleton()
     demoDCLSingleton()
     demoEagerSingleton()
 }
 
-class Singleton private constructor(){
+class Singleton private constructor() {
     var data: String = "Dao Thi My"
-    companion object{
+
+    companion object {
         @Volatile
         private var instance: Singleton? = null
         fun getInstance(): Singleton {
@@ -19,11 +20,13 @@ class Singleton private constructor(){
             }
         }
     }
-    fun showData(){
+
+    fun showData() {
         println("Singleton instance: $data")
     }
 }
-fun demoSingleton(){
+
+fun demoSingleton() {
     val s1 = Singleton.getInstance()
     s1.data = "Dao Thi My"
     s1.showData()
@@ -32,21 +35,22 @@ fun demoSingleton(){
 }
 
 //lazy singleton
-class LazySingleton private constructor()    {
+class LazySingleton private constructor() {
     var data: String = "Dao Thi My"
     fun showData() {
         println("Name: $data")
     }
+
     companion object {
-        val instance: lazySingleton by lazy { lazySingleton() }
+        val instance: LazySingleton by lazy { LazySingleton() }
     }
 }
 
-fun demoLazySingleton(){
-    val lazy1 = lazySingleton.instance
+fun demoLazySingleton() {
+    val lazy1 = LazySingleton.instance
     lazy1.data = "Vu Hong Hanh"
     lazy1.showData()
-    val lazy2 = lazySingleton.instance
+    val lazy2 = LazySingleton.instance
     lazy2.data = "Nguyen Van Long"
     println("Are lazy1 and lazy2 the same instance? ${lazy1 === lazy2}")
 }
@@ -57,6 +61,7 @@ class dclSingleton private constructor() {
     fun showData() {
         println("Name: $data")
     }
+
     companion object {
         @Volatile
         private var INSTANCE: dclSingleton? = null
@@ -69,7 +74,8 @@ class dclSingleton private constructor() {
         }
     }
 }
-fun demoDCLSingleton(){
+
+fun demoDCLSingleton() {
     val dcl1 = dclSingleton.getInstance()
     dcl1.data = "Le Huong"
     dcl1.showData()
@@ -84,7 +90,8 @@ object eagerSingleton {
         println("Name: $data")
     }
 }
-fun demoEagerSingleton(){
+
+fun demoEagerSingleton() {
     val eager1 = eagerSingleton
     eager1.data = "Pham Thi Dung"
     eager1.showData()
