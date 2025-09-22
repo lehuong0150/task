@@ -41,6 +41,7 @@ class LazySingleton private constructor()    {
         val instance: lazySingleton by lazy { lazySingleton() }
     }
 }
+
 fun demoLazySingleton(){
     val lazy1 = lazySingleton.instance
     lazy1.data = "Vu Hong Hanh"

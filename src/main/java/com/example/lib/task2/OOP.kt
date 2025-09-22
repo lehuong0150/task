@@ -16,28 +16,12 @@ fun main(){
     demoDataClass()
 }
 // Class & Object
-class Car(var brand: String, var model: String, var year: Int) {
-    fun displayInfo() {
-        println("Car Info: $brand $model, Year: $year")
-    }
-}
 fun demoClassObject(){
-    val car1 = Car("Toyota", "Camry", 2020)
-    car1.displayInfo()
+    val car1 = Car("Toyota", 20, 4)
+    car1.honk()
 }
 
 // Constructor (Primary & Secondary)
-class Person(var name: String, var age: Int) {
-    //Primary Constructor
-    init {
-        println("Person Created: $name, Age: $age")
-    }
-
-    //Secondary Constructor
-    constructor(name: String) : this(name, 0) {
-        println("Secondary Constructor Called")
-    }
-}
 fun demoConstructor(){
     val person1 = Person("Alice", 25)
     val person2 = Person("Bob")
@@ -46,16 +30,6 @@ fun demoConstructor(){
 }
 
 // Kế thừa (open class, override)
-open class Animal(var name: String) {
-    open fun sound() {
-        println("$name makes a sound")
-    }
-}
-class Dog(name: String) : Animal(name) {
-    override fun sound() {
-        println("$name barks")
-    }
-}
 fun demoInheritance(){
     val animal = Animal("Generic Animal")
     animal.sound()
@@ -64,20 +38,6 @@ fun demoInheritance(){
 }
 
 // Interface & Abstract Class
-interface Drivable {
-    fun drive()
-}
-abstract class Vehicle(var brand: String) {
-    abstract fun start()
-}
-class Bike(brand: String) : Vehicle(brand), Drivable {
-    override fun start() {
-        println("$brand bike started")
-    }
-    override fun drive() {
-        println("Driving the $brand bike")
-    }
-}
 fun demoInterfaceAbstractClass(){
     val bike = Bike("Yamaha")
     bike.start()
@@ -85,7 +45,6 @@ fun demoInterfaceAbstractClass(){
 }
 
 // Data Class
-data class Book(var title: String, var author: String, var year: Int)
 fun demoDataClass(){
     val book1 = Book("1984", "George Orwell", 1949)
     val book2 = Book("1984", "George Orwell", 1949)
@@ -98,5 +57,4 @@ fun demoDataClass(){
     println("Book3 (copied from Book1 with new year): $book3")
 }
 
-// Singleton (object)
 
